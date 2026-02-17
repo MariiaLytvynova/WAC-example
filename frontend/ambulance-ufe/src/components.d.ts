@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface LmrAmbulanceWlList {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -22,6 +24,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLLmrAmbulanceWlListElement extends Components.LmrAmbulanceWlList, HTMLStencilElement {
+    }
+    var HTMLLmrAmbulanceWlListElement: {
+        prototype: HTMLLmrAmbulanceWlListElement;
+        new (): HTMLLmrAmbulanceWlListElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +37,13 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "lmr-ambulance-wl-list": HTMLLmrAmbulanceWlListElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface LmrAmbulanceWlList {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -55,6 +66,7 @@ declare namespace LocalJSX {
     }
 
     interface IntrinsicElements {
+        "lmr-ambulance-wl-list": LmrAmbulanceWlList;
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
     }
 }
@@ -62,6 +74,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "lmr-ambulance-wl-list": LocalJSX.IntrinsicElements["lmr-ambulance-wl-list"] & JSXBase.HTMLAttributes<HTMLLmrAmbulanceWlListElement>;
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
